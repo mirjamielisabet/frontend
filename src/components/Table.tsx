@@ -1,13 +1,9 @@
 import React from "react";
 import "../App.css";
+import { IState as IProps } from "../App";
 
 interface Props {
-  data: {
-    firstName: string;
-    lastName: string;
-    age: number;
-    id: string;
-  }[];
+  data: IProps["people"];
   addData: React.Dispatch<
     React.SetStateAction<
       {
@@ -18,10 +14,37 @@ interface Props {
       }[]
     >
   >;
+  setEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  setDataEdited: React.Dispatch<
+    React.SetStateAction<{
+      firstName: string;
+      lastName: string;
+      age: number;
+      id: string;
+    }>
+  >;
 }
 
-export const Table: React.FC<Props> = ({ data, addData }) => {
-  const handleEditing = (id: string): void => {};
+export const Table: React.FC<Props> = ({
+  data,
+  addData,
+  setEditing,
+  setDataEdited,
+}) => {
+  const handleEditing = (info: {
+    firstName: string;
+    lastName: string;
+    age: number;
+    id: string;
+  }): void => {
+    setEditing(true);
+    setDataEdited({
+      firstName: info.firstName,
+      lastName: info.lastName,
+      age: info.age,
+      id: info.id,
+    });
+  };
 
   const handleDelete = (id: string): void => {
     addData([...data.filter((info) => info.id !== id)]);
@@ -47,7 +70,7 @@ export const Table: React.FC<Props> = ({ data, addData }) => {
               <td>
                 <button
                   className="tableButton"
-                  onClick={() => handleEditing(info.id)}
+                  onClick={() => handleEditing(info)}
                 >
                   <span className="material-icons">edit</span>
                 </button>{" "}
