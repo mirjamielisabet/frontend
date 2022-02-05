@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../App.css";
-import { IState as Props } from "../App";
+import { IState as IProps } from "../App";
 
-interface IProps {
-  data: Props["people"];
+interface Props {
+  data: IProps["people"];
   addData: React.Dispatch<
     React.SetStateAction<
       {
@@ -16,7 +16,7 @@ interface IProps {
   >;
 }
 
-export const Form: React.FC<IProps> = ({ data, addData }) => {
+export const Form: React.FC<Props> = ({ data, addData }) => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
