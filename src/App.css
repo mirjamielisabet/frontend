@@ -43,6 +43,16 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+td:last-child {
+  text-align: center;
+}
+
+th:last-child {
+  text-align: center;
+  font-weight: normal;
+  font-size: 0.85em;
+}
+
 tr:hover {
   background-color: #f14d33;
 }
@@ -104,4 +114,19 @@ input:focus {
 .material-icons {
   color: #f14d33;
   font-size: 0.9em;
+}
+
+.tableButton .material-icons {
+  font-size: 1.9em;
+}
+
+.tableButton {
+  padding: 5px;
+  border-radius: 1.1em;
+  border: 0.5px solid #010101;
+}
+
+.tableButton:hover {
+  cursor: pointer;
+  background-color: #c7cbcd;
 }
