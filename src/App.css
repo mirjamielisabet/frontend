@@ -89,6 +89,23 @@ tr:hover {
   background-color: #c7cbcd;
 }
 
+.button-lighter {
+  color: #f14d33;
+  background-color: #f2f6f9;
+  padding: 7px 14px;
+  border-radius: 0.2em;
+  margin: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.button-lighter:hover {
+  cursor: pointer;
+  box-shadow: 1.5px 2px 3px #acb0b3;
+  background-color: #f14d33;
+  color: #010101;
+}
+
 .smalltext {
   font-size: 0.85em;
 }
